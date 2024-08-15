@@ -32,16 +32,12 @@ namespace musicHelpers {
             }
 
     }
-    /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
-     */
     //% block
     export function nearestNoteNumberFromFrequency(freq: number): number {
         return Math.round(69 + 12 * ((Math.log(freq) - Math.log(440) / Math.log(2))));
     }
     //% block
-    function pentatonicNoteNumberToFrequency(pentNote: number) {
+    export function pentatonicNoteNumberToFrequency(pentNote: number) {
         let pentatonic = [
             0,
             2,
@@ -52,7 +48,7 @@ namespace musicHelpers {
         let note = pentNote % 5
         let octave = Math.floor(pentNote / 5)
         let targetNote = octave * 12 + pentatonic[note]
-        return targetNote
+        return noteNumberToFrequency(targetNote)
     }
     //% block
     export function noteNumberToFrequency(num: number): number {
